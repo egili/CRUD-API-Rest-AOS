@@ -2,7 +2,9 @@ const bd = require ('./bd');
 
 async function inclua(livro) {
     const conexao= await bd.getConexao();
-    if(conexao == null) return null;
+
+    if(conexao == null)
+        return null;
 
     try {
         const sql   = 'INSERT INTO livros (codigo,nome,preço) VALUES (?,?,?)';
@@ -17,7 +19,7 @@ async function inclua(livro) {
 async function atualize (livro) {
     const conexao = await bd.getConexao();
 
-    if(conexao==null)
+    if(conexao == null)
         return null;
 
     try {
@@ -33,7 +35,7 @@ async function atualize (livro) {
 async function remova(codigo) {
     const conexao = await bd.getConexao();
 
-    if(conexao==null)
+    if(conexao == null)
         return null;
 
     try {
@@ -49,7 +51,7 @@ async function remova(codigo) {
 async function recupereUm (codigo) {
     const conexao = await bd.getConexao();
 
-    if(conexao==null) 
+    if(conexao = =null) 
         return null;
 
     try {
@@ -64,7 +66,7 @@ async function recupereUm (codigo) {
 async function recupereTodos() {
     const conexao= await bd.getConexao();
 
-    if(conexao==null) 
+    if(conexao == null) 
         return null;
 
     try {
