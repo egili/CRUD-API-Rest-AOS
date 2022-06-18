@@ -8,39 +8,43 @@ class Comunicado{
         this.codigo=codigo;
         this.mensagem=mensagem;
         this.descriçao=descricao;
-
     }
 
     //getters
-
     get codigo () {
         return this.#codigo;
     }
     get mensagem () {
         return this.#mensagem;
     }
-    get descriçao () {
+
+    get descricao () {
+
         return this.#descricao;
     }
 
     set codigo (codigo) {
-        if (codigo===undefined || typeof codigo !== 'string' || codigo.length!==3) {
+
+        if (codigo===undefined || typeof codigo!== 'string' || codigo.length!==3) {
             throw ('codigo invalido!!')
         }
 
-        this.#codigo=codigo;
+        this.#codigo = codigo;
     }
 
     set mensagem (mensagem) {
-        if (mensagem===undefined || typeof mensagem !== 'string' || mensagem==="") {
+
+        if (mensagem===undefined || typeof mensagem!== 'string' || mensagem==="") {
             throw ('Mensagem  invalida!!')
         }
 
         this.#mensagem = mensagem;
     }
 
-    set descriçao (descricao) {
-        if (descricao===undefined || typeof descricao !=='string' || this.descricao==="") {
+
+    set descricao(descricao) {
+        if (descricao===undefined || typeof descricao!=='string' || this.descricao==="") {
+
             throw ('descricao invalido!!')
         }
 
@@ -51,7 +55,9 @@ class Comunicado{
         return {codigo:this.#codigo,mensagem:this.#mensagem,descricao:this.#descricao}
     }
 }
-    function novo (codigo,mensagem,descricao) {
+
+    function novo(codigo,mensagem,descricao) {
+
         return new Comunicado (codigo,mensagem,descricao);
     
     }
