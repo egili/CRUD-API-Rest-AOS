@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/egili/CRUD-API-Rest-AOS/issues"
   },
-  "homepage": "https://github.com/egili/CRUD-API-Rest-AOS#readme"
+  "homepage": "https://github.com/egili/CRUD-API-Rest-AOS#readme",
+  "dependencies": {
+    "mysql2": "^2.3.3"
+  }
 }
