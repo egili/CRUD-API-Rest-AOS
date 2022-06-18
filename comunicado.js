@@ -3,56 +3,54 @@ class Comunicado{
     #mensagem
     #descriçao
 
-    constructor(codigo,mensagem,descriçao){
+    constructor(codigo,mensagem,descricao){
 
         this.codigo=codigo;
         this.mensagem=mensagem;
-        this.descriçao=descriçao;
-
+        this.descriçao=descricao;
     }
 
     //getters
-
     get codigo () {
         return this.#codigo;
     }
     get mensagem () {
         return this.#mensagem;
     }
-    get descriçao () {
-        return this.#descriçao;
+    get descricao () {
+        return this.#descricao;
     }
 
-    set codigo(codigo) {
-        if (codigo===undefined|| typeof codigo!== 'string'|| codigo.length!==3) {
+    set codigo (codigo) {
+        if (codigo===undefined || typeof codigo!== 'string' || codigo.length!==3) {
             throw ('codigo invalido!!')
         }
 
-        this.#codigo=codigo;
+        this.#codigo = codigo;
     }
 
-    set mensagem(mensagem) {
-        if (mensagem===undefined|| typeof mensagem!== 'string'|| mensagem==='') {
+    set mensagem (mensagem) {
+        if (mensagem===undefined || typeof mensagem!== 'string' || mensagem==="") {
             throw ('Mensagem  invalida!!')
         }
 
-        this.#mensagem=mensagem;
+        this.#mensagem = mensagem;
     }
 
-    set descriçao(descriçao) {
-        if (descriçao===undefined|| typeof descriçao!=='string'|| this.descriçao==='') {
-            throw ('codigo invalido!!')
+    set descricao(descriçao) {
+        if (descricao===undefined || typeof descricao!=='string' || this.descricao==="") {
+            throw ('descricao invalido!!')
         }
 
-        this.#descriçao=descriçao;
+        this.#descricao = descricao;
     }
     
     get object() {
-        return {codigo:this.#codigo,mensagem:this.#mensagem,descriçao:this.#descriçao}
+        return {codigo:this.#codigo,mensagem:this.#mensagem,descricao:this.#descricao}
     }
 }
-    function novo(codigo,mensagem,descriçao) {
-        return new Comunicado(codigo,mensagem,descriçao);
+    function novo(codigo,mensagem,descricao) {
+        return new Comunicado (codigo,mensagem,descricao);
     
     }
-module.exports={novo};
+module.exports = {novo};
