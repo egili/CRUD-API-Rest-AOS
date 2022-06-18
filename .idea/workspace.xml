@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b50adae6-7920-4338-b68a-3ee9f723789d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/livros.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bd.js" beforeDir="false" afterPath="$PROJECT_DIR$/bd.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comunicado.js" beforeDir="false" afterPath="$PROJECT_DIR$/comunicado.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/livroDAO.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/livroDBO.js" beforeDir="false" afterPath="$PROJECT_DIR$/livro.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rotas.js" beforeDir="false" afterPath="$PROJECT_DIR$/rotas.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

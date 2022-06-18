@@ -182,7 +182,7 @@ async function recuperacaoDeTodos(req,res) {
         return res.status(422).json(erro); 
     }
 
-    const ret = await livros.recuperacaoDeTodos();
+    const ret = await livros.recupereTodos();
     if (ret === undefined)
     {
         const erro = comunicado.novo('CBD','Sem conexao com o BD','Não foi possivel estabelecer conexao com o banco de dados').object;
