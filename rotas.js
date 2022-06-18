@@ -20,6 +20,7 @@ async function inclusao (req,res) {
     }
     catch (excecao)
     {
+
         const erro = comunicado.novo('TDE','Dados de tipos errados','Codigo deve ser um numero natural positivo,nome deve ser um texto nao vazio e preço deve ser um numero real positivo').object;
         return res.status(422).json(erro); 
     }
@@ -38,13 +39,13 @@ async function inclusao (req,res) {
     }
         const sucesso = comunicado.novo('IBS','Inclusao bem sucedida','O livro foi incluido com sucesso').object;
         return res.status(201).json(sucesso); 
-
 }
 
 async function atualizacao(req,res)
 {
     if (Object.values(req.body).length !=3 || !req.body.codigo || !req.body.nome || !req.body.preço) {
-        const erro = comunicado.novo('Ddi','Dados inesperados','Não foram fornecidos exatamente as 3 informações esperadas de um livro(codigo, nome e preço)').object;
+        const erro = comunicado.novo('DdI','Dados inesperados','Não foram fornecidos exatamente as 3 informações esperadas de um livro(codigo, nome e preço)').object;
+
         return res.status(422).json(erro);
     }
 
