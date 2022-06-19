@@ -186,4 +186,4 @@ async function recuperacaoDeTodos(req,res) {
     return res.status(200).json(ret);
 }
 
-module.exports = {inclusao, atualizaçao, remoçao, recuperacaoDeUm, recuperacaoDeTodos};
+module.exports = {inclusao, atualizacao, remocao, recuperacaoDeUm, recuperacaoDeTodos};
