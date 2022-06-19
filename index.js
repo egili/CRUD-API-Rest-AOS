@@ -1,4 +1,3 @@
-
 const express  = require('express');
 const bd       = require('./bd.js');
 const rotas    = require('./rotas.js');
@@ -33,6 +32,8 @@ async function ativacaoDoServidor()
         process.exit(1);
     }
 
+
+    //Passar esses const lá para cima
     const express = require('express');
     const app     = express();
 
@@ -48,7 +49,7 @@ async function ativacaoDoServidor()
     app.get('/livros'            ,rotas.recuperacaoDeTodos);
 
 
-    console.log('Servidor Rodando na porta 3000...');
+    console.log('Servidor rodando na porta 3000...');
     app.listen(3000); // 'escutando na porta 3000'
 }
 ativacaoDoServidor();

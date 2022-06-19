@@ -9,8 +9,9 @@ async function inclusao (req,res) {
 
     if (Object.values(req.body).length!=3 || !req.body.codigo || !req.body.nome || !req.body.preço)
     {
-        const erro = comunicado.novo('Ddi','Dados inesperados','Não foram fornecidos exatamente as 3 informações esperadas de um livro(codigo, nome e preço)').object; //criando objeto
+        const erro = comunicado.novo('DdI','Dados inesperados','Não foram fornecidos exatamente as 3 informações esperadas de um livro(codigo, nome e preço)').object; //criando objeto
         return res.status(422).json(erro);
+        
     }
 
     let livro;
@@ -83,7 +84,7 @@ async function atualizacao(req,res)
         return res.status(404).json(erro); 
     }
 
-     ret = await livros.atualize(livro);
+    ret = await livros.atualize(livro);
     if (ret === undefined) {
         const erro = comunicado.novo('CBD','Sem conexao com o BD','Não foi possivel estabelecer conexao com o banco de dados').object;
         return res.status(500).json(erro); 
@@ -199,4 +200,4 @@ async function recuperacaoDeTodos(req,res) {
     return res.status(200).json(ret);
 }
 
-module.exports = {inclusao,atualizaçao,remoçao,recuperacaoDeUm,recuperacaoDeTodos};
+module.exports = {inclusao,atualizacao,remoçao,recuperacaoDeUm,recuperacaoDeTodos};
