@@ -17,7 +17,7 @@ async function getConexao() {
 async function estrutureSe () {
     const conexao = await getConexao ();
 
-    if (conexao==undefined) 
+    if (conexao == undefined) 
         return null;
 
     //TODO Preciso criar tabela banco (ANA)
