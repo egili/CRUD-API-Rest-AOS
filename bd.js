@@ -22,20 +22,17 @@ async function estrutureSe ()
 {
     const conexao = await getConexao ();
     if (conexao==undefined) return null;
-
+    //TODO Preciso criar tabela banco (ANA)
     const sql = 'CREATE TABLE IF NOT EXISTS livros '+
     '(codigo TINYINT UNSIGNED, '+
-     'nome VARCHAR(60) NOT NULL, '+
-     'preco FLOAT NOT NULL, PRIMARY KEY (codigo))';
+    'nome VARCHAR(60) NOT NULL, '+
+    'preco FLOAT NOT NULL, PRIMARY KEY (codigo))';
 
-    try
-    {
+    try{
         await conexao.query(sql);
-            return true; // retorna true se a quey foi executada
-    }
-    catch (error)
-    {
-        return false; // retorna false se a conexao nao foi executada
+            return true; 
+    }catch (error){
+        return false; 
     }
 }
 
