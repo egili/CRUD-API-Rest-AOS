@@ -27,7 +27,7 @@ async function estrutureSe () {
 
     try {
         await conexao.query(sql);
-            return true; // retorna true se a quey foi executada
+            return true; // retorna true se a query foi executada
     } catch (error) {
         return false; // retorna false se a conexao nao foi executada
     }

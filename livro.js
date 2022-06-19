@@ -36,14 +36,14 @@ class Livro {
         if (nome === undefined || typeof codigo !== 'string' || nome === '' )
             throw ('Nome Invalido!!');
         
-        this.#nome=nome;
+        this.#nome = nome;
     }
 
     set preço (preço) {
         if (preço === undefined || typeof preço !== 'number' || isNaN(preço) || preço <= 0) 
             throw ('Preço Invalido!!');
         
-        this.#preço= preço;
+        this.#preço = preço;
     }
 }
 

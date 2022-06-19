@@ -8,7 +8,7 @@ async function inclua(livro) {
 
     try {
         const sql   = 'INSERT INTO livros (codigo,nome,preço) VALUES (?,?,?)';
-        const dados = [livro.codigo,livro.nome,livro.preço];
+        const dados = [livro.codigo, livro.nome, livro.preço];
         await conexao.query (sql,dados);
         return true;
     } catch (excecao) {
@@ -24,8 +24,8 @@ async function atualize (livro) {
 
     try {
         const sql   = 'UPDATE livros SET nome=?,preço=? WHERE codigo=?';
-        const dados = [livro.nome,livro.preço,livro.codigo];
-        await conexao.query (sql,dados);
+        const dados = [livro.nome, livro.preço, livro.codigo];
+        await conexao.query (sql, dados);
         return true;
     } catch (excecao) {
         return false;
@@ -41,7 +41,7 @@ async function remova(codigo) {
     try {
         const sql    = 'DELETE FROM livros WHERE codigo=?';
         const dados  = [codigo];
-        await conexao.query (sql,dados);
+        await conexao.query (sql, dados);
         return true;
     } catch (excecao) {
         return false;
@@ -55,9 +55,9 @@ async function recupereUm (codigo) {
         return null;
 
     try {
-        const sql      = 'SELECT * FROM livros WHERE codigo=?';
+        const sql      = 'SELECT * FROM livros WHERE codigo = ?';
         const dados    = [codigo];
-        const [linhas] = await conexao.query (sql,dados);
+        const [linhas] = await conexao.query (sql, dados);
         return linhas;
     } catch (excecao) {
         return false;
