@@ -51,7 +51,7 @@ async function remova(codigo) {
 async function recupereUm (codigo) {
     const conexao = await bd.getConexao();
 
-    if(conexao = =null) 
+    if(conexao == null) 
         return null;
 
     try {
