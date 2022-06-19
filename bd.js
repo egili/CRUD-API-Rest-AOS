@@ -21,12 +21,12 @@ async function estrutureSe () {
         return null;
 
     const sql = 'CREATE TABLE IF NOT EXISTS cidadao '+
-                '(cid_cpf varchar(15) primary key not null, '+
-                'cid_nome varchar (50) not null, '+
-                'cid_telefone varchar(12) not null, '+
-                'cid_numeroDaCasa int, '+
-                'cid_complemento varchar(15),'+
-                ' cid_cep varchar (10) not null)';
+                '(cid_cpf  BIGINT UNSIGNED PRIMARY KEY NOT NULL, '+
+                'cid_nome TINYTEXT NOT NULL, '+
+                'cid_telefone BIGINT UNSIGNED NOT NULL, '+
+                'cid_numeroDaCasa SMALLINT UNSIGNED, '+
+                'cid_complemento TINYTEXT,'+
+                'cid_cep INT UNSIGNED NOT NULL);';
 
     try {
         await conexao.query(sql);
