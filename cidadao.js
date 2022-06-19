@@ -1,4 +1,5 @@
-class Cidadao{
+class Cidadao {
+
     #CPF
     #nome
     #telefone
@@ -24,49 +25,45 @@ class Cidadao{
     get Telefone() {
         return this.#telefone;
     }
-    get NumeroCasa(){
+    get NumeroCasa() {
         return this.#numeroCasa;
     }
-    get Complemento(){
+    get Complemento() {
         return this.#complemento
     }
-    get CEP(){
+    get CEP() {
         return this.#CEP
     }
 
     set CPF (cpf) {
         if (cpf === undefined || typeof cpf !== 'string' || cpf === "" )
-                throw ('CPF Invalido!!');
+            throw ('CPF Invalido!!');
         //TODO transformar para numero
-            this.#CPF=cpf;
+        this.#CPF=cpf;
     }
     
     set nome (nome) {
-        if (nome === undefined || typeof codigo !== 'string' || nome === "" ){
-                throw ('Nome Invalido!!');
-        }
+        if (nome === undefined || typeof codigo !== 'string' || nome === "" )
+            throw ('Nome Invalido!!');
        //TODO transformar para numero
        // for(int i = 0; i < nome.length(); i++)
        //{
        //   if(nome.charAt(i) < 65 || nome.charAt(i) > 90 && nome.charAt(i) < 97 || nome.charAt(i) > 122)
        //      throw new Exception("O nome nao pode ter caracteres especiais");
        //}
-            this.#nome=nome;
+        this.#nome=nome;
     }
 
     set Telefone (numeroComDDD) {
-        if (numeroComDDD === undefined || typeof numeroComDDD !== 'string' || numeroComDDD === "" || numeroComDDD.length()>11 ){
-                throw ('Numero de telefone com DDD invalido!!');
-        }
+        if (numeroComDDD === undefined || typeof numeroComDDD !== 'string' || numeroComDDD === "" || numeroComDDD.length() > 11 )
+            throw ('Numero de telefone com DDD invalido!!');
         //TODO transformar para numero
         this.#telefone = numeroComDDD;
     }
 
     set NumeroCasa (numeroCasa) {
-        if (numeroCasa === undefined || typeof numeroCasa !== 'number' || isNaN(numeroCasa) || numeroCasa!==parseInt(numeroCasa) || numeroCasa <= 0 ){
-                throw ('Numero de casa invalido!!');
-        }
-
+        if (numeroCasa === undefined || typeof numeroCasa !== 'number' || isNaN(numeroCasa) || numeroCasa !== parseInt(numeroCasa) || numeroCasa <= 0 )
+            throw ('Numero de casa invalido!!');
         this.#numeroCasa = numeroCasa;
     }
 
@@ -76,16 +73,15 @@ class Cidadao{
     }
 
     set CEP (cep) {
-        if (cep === undefined || typeof cep !== 'string' || cep === "" || cep.length()>8 ){
-                throw ('Numero CEP invalido!!');
-        }
+        if (cep === undefined || typeof cep !== 'string' || cep === "" || cep.length() > 8 )
+            throw ('Numero CEP invalido!!');
         //TODO transformar para numero
         this.#CEP = cep;
     }
 }
 
-function novoCidadao(CPF,nome,telefone, numeroCasa, complemento, CEP) {
-    return new Cidadao(CPF,nome,telefone, numeroCasa, complemento, CEP);
+function novoCidadao(CPF, nome, telefone, numeroCasa, complemento, CEP) {
+    return new Cidadao(CPF, nome, telefone, numeroCasa, complemento, CEP);
 }
 
 module.exports={novoCidadao};
