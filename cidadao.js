@@ -1,5 +1,5 @@
 class Cidadao{
-    //Criando atributos privativps
+    //Criando atributos privativos
     #CPF
     #nome
     #telefone
@@ -68,7 +68,7 @@ class Cidadao{
     set CPF (cpf) {
         if (cpf === undefined || typeof cpf !== 'string' || cpf === "" )
                 throw ('CPF Invalido!!');
-
+        //transformar para numero
         //for(int i = 0; i < CPF.length(); i++)
         //{
         //  if(CPF.charAt(i) < 48 || CPF.charAt(i) > 57)
@@ -143,7 +143,7 @@ class Cidadao{
     */
 }
 
-function novo(CPF,nome,telefone, numeroCasa, complemento, CEP) {
+function novoCidadao(CPF,nome,telefone, numeroCasa, complemento, CEP) {
     return new Cidadao(CPF,nome,telefone, numeroCasa, complemento, CEP);
 }
 /*
@@ -151,4 +151,4 @@ function novo(codigo,nome,preço) {
     return new Livro(codigo,nome,preço);
 }
 */
-module.exports={novo};
+module.exports={novoCidadao};
