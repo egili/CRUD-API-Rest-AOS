@@ -5,7 +5,7 @@ const livroDbo   = require ('./livro.js');
 const Comunicado = require ('./comunicado.js');
 
 // para a rota do create
-async function inclusao (req,res) {
+async function inclusao (req, res) {
 
     if (Object.values(req.body).length !=3 || !req.body.codigo || !req.body.nome || !req.body.preço) {
         const erro = comunicado.novo('Ddi','Dados inesperados','Não foram fornecidos exatamente as 3 informações esperadas de um livro(codigo, nome e preço)').object; //criando objeto
@@ -37,7 +37,7 @@ async function inclusao (req,res) {
     return res.status(201).json(sucesso); 
 }
 
-async function atualizacao(req,res) {
+async function atualizacao(req, res) {
 
     if (Object.values(req.body).length != 3 || !req.body.codigo || !req.body.nome || !req.body.preço) {
         const erro = comunicado.novo('DdI','Dados inesperados','Não foram fornecidos exatamente as 3 informações esperadas de um livro(codigo, nome e preço)').object;
@@ -93,7 +93,7 @@ async function atualizacao(req,res) {
     return res.status(201).json(sucesso); 
 }
 
-async function remocao (req,res) {
+async function remocao (req, res) {
 
     if (Objects.values(req.body).length!=0) {
         const erro = comunicado.novo('DSP','Fornecimento de dados sem proposito','Foram fornecidos dados desnecessarios').object;
@@ -135,7 +135,7 @@ async function remocao (req,res) {
     return res.status(201).json(sucesso);
 }
 
-async function recuperacaoDeUm(req,res) {
+async function recuperacaoDeUm(req, res) {
 
     if (Objects.values(req.body).length != 0) {
         const erro = comunicado.novo('DSP','Fornecimento de dados sem proposito','Foram fornecidos dados desnecessarios').object;
@@ -164,7 +164,7 @@ async function recuperacaoDeUm(req,res) {
     return res.status(200).json(ret);
 }
 
-async function recuperacaoDeTodos(req,res) {
+async function recuperacaoDeTodos(req, res) {
 
     if (Objects.values(req.body).length != 0) {
         const erro = comunicado.novo('DSP','Fornecimento de dados sem proposito','Foram fornecidos dados desnecessarios').object;
