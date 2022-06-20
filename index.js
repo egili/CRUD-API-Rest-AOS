@@ -4,13 +4,13 @@ const rotas    = require('./rotas.js');
 
 function middleWareGlobal(req, res, next) {
 
-    console.time('Duracao'); // Marca o inicio da requisiçao
+    console.time('Duracao'); // Marca o inicio da requisicao
     console.log(`Iniciou o processamento da requisicao ${req.metod} em ${req.url}`);// indica onde aconteceu
     
-    next(); // funçao que chama o processamento, propiamente dito da requisiçao
+    next(); // funcao que chama o processamento, propiamente dito da requisicao
     
     console.log(`Iniciou o processamento da requisicao ${req.metod} em ${req.url}`);// indica onde aconteceu
-    console.timeEnd('Duracao'); // Informa duraçao do processamento da requisiçao
+    console.timeEnd('Duracao'); // Informa duracao do processamento da requisicao
 }
 
 async function ativacaoDoServidor() {

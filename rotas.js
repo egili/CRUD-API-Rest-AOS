@@ -7,18 +7,18 @@ const Comunicado = require ('./comunicado.js');
 // para a rota do create
 async function inclusao (req,res) {
 
-    if (Object.values(req.body).length != 3 || !req.body.codigo || !req.body.nome || !req.body.preço) {
-        const erro = comunicado.novo('DdI','Dados inesperados','Não foram fornecidos exatamente as 3 informações esperadas de um livro(codigo, nome e preço)').object; //criando objeto
+    if (Object.values(req.body).length != 3 || !req.body.codigo || !req.body.nome || !req.body.preco) {
+        const erro = comunicado.novo('DdI','Dados inesperados','Não foram fornecidos exatamente as 3 informacões esperadas de um livro(codigo, nome e preco)').object; //criando objeto
         return res.status(422).json(erro);
     }
 
     let livro;
 
     try{
-        livro = livro.novo(req.body.codigo,req.body.nome,req.body.preço);
+        livro = livro.novo(req.body.codigo,req.body.nome,req.body.preco);
     }
     catch (excecao) {
-        const erro = comunicado.novo('TDE','Dados de tipos errados','Codigo deve ser um numero natural positivo,nome deve ser um texto nao vazio e preço deve ser um numero real positivo').object;
+        const erro = comunicado.novo('TDE','Dados de tipos errados','Codigo deve ser um numero natural positivo,nome deve ser um texto nao vazio e preco deve ser um numero real positivo').object;
         return res.status(422).json(erro); 
     }
 
@@ -40,24 +40,24 @@ async function inclusao (req,res) {
 
 async function atualizacao(req,res) {
 
-    if (Object.values(req.body).length != 3 || !req.body.codigo || !req.body.nome || !req.body.preço) {
-        const erro = comunicado.novo('DdI','Dados inesperados','Não foram fornecidos exatamente as 3 informações esperadas de um livro(codigo, nome e preço)').object;
+    if (Object.values(req.body).length != 3 || !req.body.codigo || !req.body.nome || !req.body.preco) {
+        const erro = comunicado.novo('DdI','Dados inesperados','Não foram fornecidos exatamente as 3 informacões esperadas de um livro(codigo, nome e preco)').object;
         return res.status(422).json(erro);
     }
 
     let livro;
 
     try {
-        livro = livro.novo(req.body.codigo,req.body.nome,req.body.preço);
+        livro = livro.novo(req.body.codigo,req.body.nome,req.body.preco);
     } catch (excecao) {
-        const erro = comunicado.novo('TDE','Dados de tipos errados','Codigo deve ser um numero natural positivo,nome deve ser um texto nao vazio e preço deve ser um numero real positivo').object;
+        const erro = comunicado.novo('TDE','Dados de tipos errados','Codigo deve ser um numero natural positivo,nome deve ser um texto nao vazio e preco deve ser um numero real positivo').object;
         return res.status(422).json(erro); 
     }
 
     const codigo = req.params.codigo;
 
     if (codigo != livro.codigo) {
-        const erro = comunicado.novo('TMC','Mudança de código','Tentativa de mudar codigo do livro').object;
+        const erro = comunicado.novo('TMC','Mudanca de código','Tentativa de mudar codigo do livro').object;
         return res.status(400).json(erro); 
     }
 
@@ -90,10 +90,9 @@ async function atualizacao(req,res) {
         return res.status(409).json(erro); 
     }
 
-    const sucesso = comunicado.novo('ABS','Atualizaçao bem sucedida','O livro foi Atualizado com sucesso').object;
+    const sucesso = comunicado.novo('ABS','Atualizacao bem sucedida','O livro foi Atualizado com sucesso').object;
     return res.status(201).json(sucesso); 
 }
-
 
 async function remocao (req,res) {
 
@@ -132,7 +131,7 @@ async function remocao (req,res) {
         return res.status(409).json(erro); 
     }
 
-    const sucesso = comunicado.novo('RBS','Remoçao bem sucedida','O livro foi removido com sucesso').object;
+    const sucesso = comunicado.novo('RBS','Remocao bem sucedida','O livro foi removido com sucesso').object;
     return res.status(201).json(sucesso);
 }
 
@@ -186,4 +185,4 @@ async function recuperacaoDeTodos(req,res) {
     return res.status(200).json(ret);
 }
 
-module.exports = {inclusao,atualizacao,remoçao,recuperacaoDeUm,recuperacaoDeTodos};
+module.exports = {inclusao,atualizacao,remocao,recuperacaoDeUm,recuperacaoDeTodos};
