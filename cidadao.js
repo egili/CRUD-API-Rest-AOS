@@ -36,46 +36,45 @@ class Cidadao {
     }
 
     set CPF (cpf) {
-        if (cpf === undefined || typeof cpf !== 'string' || cpf === "" )
+        if (cpf === undefined || typeof cpf !== 'number' || isNaN(cpf) || cpf !== parseInt(cpf) || cpf <= 0 || cpf.length() > 11 )
             throw ('CPF Invalido!!');
-        //TODO transformar para numero
+
         this.#CPF=cpf;
     }
+
     
     set nome (nome) {
-        if (nome === undefined || typeof codigo !== 'string' || nome === "" )
+        if (nome === undefined || typeof nome !== 'string' || nome === "" )
             throw ('Nome Invalido!!');
-       //TODO transformar para numero
-       // for(int i = 0; i < nome.length(); i++)
-       //{
-       //   if(nome.charAt(i) < 65 || nome.charAt(i) > 90 && nome.charAt(i) < 97 || nome.charAt(i) > 122)
-       //      throw new Exception("O nome nao pode ter caracteres especiais");
-       //}
+
         this.#nome=nome;
     }
 
     set Telefone (numeroComDDD) {
-        if (numeroComDDD === undefined || typeof numeroComDDD !== 'string' || numeroComDDD === "" || numeroComDDD.length() > 11 )
+        if (numeroComDDD === undefined || typeof numeroComDDD !== 'number' || isNaN(numeroComDDD) || numeroComDDD !== parseInt(numeroComDDD) ||  numeroComDDD.length() > 11  || numeroComDDD <= 0)
             throw ('Numero de telefone com DDD invalido!!');
-        //TODO transformar para numero
+
         this.#telefone = numeroComDDD;
     }
 
     set NumeroCasa (numeroCasa) {
         if (numeroCasa === undefined || typeof numeroCasa !== 'number' || isNaN(numeroCasa) || numeroCasa !== parseInt(numeroCasa) || numeroCasa <= 0 )
             throw ('Numero de casa invalido!!');
+
         this.#numeroCasa = numeroCasa;
     }
 
     set Complemento (complemento) {
+        if ( typeof complemento !== 'string' )
+            throw ('Complemento Invalido!!');
+        // NOTE: Complemento nao eh not null no bd, ent verifica somente se é uma string
         this.#complemento = complemento;
-        //TODO rever se não precisa validar nd
     }
 
     set CEP (cep) {
-        if (cep === undefined || typeof cep !== 'string' || cep === "" || cep.length() > 8 )
+        if (cep === undefined || typeof cep !== 'number' || isNaN(cep) || cep !== parseInt(cep) || cep <= 0 ||  cep.length() > 8 )
             throw ('Numero CEP invalido!!');
-        //TODO transformar para numero
+
         this.#CEP = cep;
     }
 }

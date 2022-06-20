@@ -20,12 +20,13 @@ async function estrutureSe () {
     if (conexao == undefined) 
         return null;
 
-    //TODO Preciso criar tabela banco (ANA)
-
-    const sql = 'CREATE TABLE IF NOT EXISTS livros '+
-                '(codigo TINYINT UNSIGNED, '+
-                'nome VARCHAR(60) NOT NULL, '+
-                'preco FLOAT NOT NULL, PRIMARY KEY (codigo))';
+    const sql = 'CREATE TABLE IF NOT EXISTS cidadao '+
+                '(cid_cpf  BIGINT UNSIGNED PRIMARY KEY NOT NULL, '+
+                'cid_nome TINYTEXT NOT NULL, '+
+                'cid_telefone BIGINT UNSIGNED NOT NULL, '+
+                'cid_numeroDaCasa SMALLINT UNSIGNED, '+
+                'cid_complemento TINYTEXT,'+
+                'cid_cep INT UNSIGNED NOT NULL);';
 
     try {
         await conexao.query(sql);
