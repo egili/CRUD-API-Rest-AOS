@@ -1,11 +1,11 @@
 class Cidadao {
 
-    #CPF
-    #nome
-    #telefone
-    #numeroCasa
-    #complemento
-    #CEP
+    #CPF;
+    #nome;
+    #telefone;
+    #numeroCasa;
+    #complemento;
+    #CEP;
 
     constructor(cpf, nome, numeroComDDD, numeroCasa, complemento, cep) {
         this.CPF         = cpf;
@@ -32,7 +32,7 @@ class Cidadao {
         return this.#complemento
     }
     get CEP() {
-        return this.#CEP
+        return this.#CEP;
     }
 
     set CPF (cpf) {

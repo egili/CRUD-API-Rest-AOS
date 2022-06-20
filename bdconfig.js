@@ -8,7 +8,7 @@ module.exports = {
 };
 /*
 Para criar variavel de ambiente:
-@echo off → evita escrever os comando na tela pela própria segurança dos usuário
+@echo off → evita escrever os comando na tela pela própria seguranca dos usuário
 set NODE_MYSQL_SERVIDOR=a_maquina_que_roda_mysql
 set NODE_MYSQL_USUARIO=seu_usuario_no_mysql
 set NODE_MYSQL_SENHA=sua_senha_no_mysql
