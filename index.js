@@ -1,16 +1,17 @@
 const express  = require('express');
 const bd       = require('./bd.js');
 const rotas    = require('./rotas.js');
+var cors = require('cors')
 
 function middleWareGlobal(req, res, next) {
 
-    console.time('Duracao'); // Marca o inicio da requisicao
-    console.log(`Iniciou o processamento da requisicao ${req.metod} em ${req.url}`);// indica onde aconteceu
+    console.time('Duracao'); 
+    console.log(`Iniciou o processamento da requisicao ${req.metod} em ${req.url}`);
     
-    next(); // funcao que chama o processamento, propiamente dito da requisicao
+    next(); 
     
-    console.log(`Iniciou o processamento da requisicao ${req.metod} em ${req.url}`);// indica onde aconteceu
-    console.timeEnd('Duracao'); // Informa duracao do processamento da requisicao
+    console.log(`Iniciou o processamento da requisicao ${req.metod} em ${req.url}`);
+    console.timeEnd('Duracao'); 
 }
 
 async function ativacaoDoServidor() {
@@ -31,17 +32,24 @@ async function ativacaoDoServidor() {
     const express = require('express');
     const app     = express();
 
-    app.use(express.json()); // faz com que o express consiga processar json
-    app.use(middleWareGlobal); // cria um middleare global
+    app.use(express.json()); 
+    app.use(middleWareGlobal); 
 
-    //Criando minhas rotas
-    app.post('/livros'           ,rotas.inclusao);
-    app.put('/livros/:codigo'    ,rotas.atualizacao);
-    app.delete('/livros/:codigo' ,rotas.remocao);
-    app.get('/livros/:codigo'    ,rotas.recuperacaoDeUm);
-    app.get('/livros'            ,rotas.recuperacaoDeTodos);
+    // Evitar erro do CORS
+    app.use((req, res, next) => {
+        res.header('Access-Control-Allow-Origin', '*');
+        res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+        res.header('Access-Control-Allow-Headers', 'Content-Type');
+        next();
+    });
+
+    app.post('/cidadaos'           ,rotas.inclusao);
+    app.put('/cidadaos/:cpf'       ,rotas.atualizacao);
+    app.delete('/cidadaos/:cpf'    ,rotas.remocao);
+    app.get('/cidadaos/:cpf'       ,rotas.recuperacaoDeUm);
+    app.get('/cidadaos'            ,rotas.recuperacaoDeTodos);
 
     console.log('Servidor rodando na porta 3000...');
-    app.listen(3000); // 'escutando na porta 3000'
+    app.listen(3000);
 }
 ativacaoDoServidor();

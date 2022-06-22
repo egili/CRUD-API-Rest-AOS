@@ -1,28 +1,28 @@
-const bdConfig   = require ('./bdconfig.js')
-const bd         = require ('./bd.js')
-const livrosDao  = require ('./livros.js');
-const livroDbo   = require ('./livro.js');
-const Comunicado = require ('./comunicado.js');
+const bdConfig   = require ('./bdconfig.js');
+const bd         = require ('./bd.js');
+const cidadaos   = require ('./cidadaos.js');
+const cidadao    = require ('./cidadao.js');
+const comunicado = require ('./comunicado.js');
 
 // para a rota do create
 async function inclusao (req,res) {
 
-    if (Object.values(req.body).length != 3 || !req.body.codigo || !req.body.nome || !req.body.preco) {
-        const erro = comunicado.novo('DdI','Dados inesperados','Não foram fornecidos exatamente as 3 informacões esperadas de um livro(codigo, nome e preco)').object; //criando objeto
+    if (Object.values(req.body).length != 6 || !req.body.CPF || !req.body.nome || !req.body.telefone || !req.body.numeroCasa || !req.body.complemento || !req.body.CEP ) {
+        const erro = comunicado.novo('DdI','Dados inesperados','Não foram fornecidos exatamente as 6 informacões esperadas de um cidadao(CPF, nome, telefone, numeroCasa, complemento e CEP.)').object;
         return res.status(422).json(erro);
     }
 
-    let livro;
+    let cidadao;
 
     try{
-        livro = livro.novo(req.body.codigo,req.body.nome,req.body.preco);
+        cidadao = cidadao.novo(req.body.CPF, req.body.nome, req.body.telefone, req.body.numeroCasa, req.body.complemento, req.body.CEP);
     }
     catch (excecao) {
-        const erro = comunicado.novo('TDE','Dados de tipos errados','Codigo deve ser um numero natural positivo,nome deve ser um texto nao vazio e preco deve ser um numero real positivo').object;
+        const erro = comunicado.novo('TDE','Dados de tipos errados','CPF deve ser um numero natural positivo, nome deve ser um texto nao vazio, telefone deve ter DDD e Numeros, numero da casa deve ser um natural positivo, complemento deve ser um texto não vazio e CEP deve ser numeros naturais positivos.').object;
         return res.status(422).json(erro); 
     }
 
-    const ret = await livros.inclua(livro);
+    const ret = await cidadaos.inclua(cidadao);
 
     if (ret === undefined) {
         const erro = comunicado.novo('CBD','Sem conexao com o BD','Não foi possivel estabelecer conexao com o banco de dados').object;
@@ -30,38 +30,38 @@ async function inclusao (req,res) {
     }
 
     if (ret === false) {
-        const erro = comunicado.novo('LJE','Livro já existe','Já existem livros cadastrados com esse codigo').object;
+        const erro = comunicado.novo('CJE','Cidadao já existe','Já existem cidadoes cadastrados com esse codigo').object;
         return res.status(409).json(erro); 
     }
 
-    const sucesso = comunicado.novo('IBS','Inclusao bem sucedida','O livro foi incluido com sucesso').object;
+    const sucesso = comunicado.novo('IBS','Inclusao bem sucedida','O cidadao foi incluido com sucesso').object;
     return res.status(201).json(sucesso); 
 }
 
 async function atualizacao(req,res) {
 
-    if (Object.values(req.body).length != 3 || !req.body.codigo || !req.body.nome || !req.body.preco) {
-        const erro = comunicado.novo('DdI','Dados inesperados','Não foram fornecidos exatamente as 3 informacões esperadas de um livro(codigo, nome e preco)').object;
+    if (Object.values(req.body).length != 6 || !req.body.CPF || !req.body.nome || !req.body.telefone || !req.body.numeroCasa || !req.body.complemento || !req.body.CEP) {
+        const erro = comunicado.novo('DdI','Dados inesperados','Não foram fornecidos exatamente as 6 informacões esperadas de um cidadao(CPF, nome, telefone, numeroCasa, complemento e CEP.)').object;
         return res.status(422).json(erro);
     }
 
-    let livro;
+    let cidadao;
 
     try {
-        livro = livro.novo(req.body.codigo,req.body.nome,req.body.preco);
+        cidadao = cidadao.novo(req.body.CPF, req.body.nome, req.body.telefone, req.body.numeroCasa, req.body.complemento, req.body.CEP);
     } catch (excecao) {
-        const erro = comunicado.novo('TDE','Dados de tipos errados','Codigo deve ser um numero natural positivo,nome deve ser um texto nao vazio e preco deve ser um numero real positivo').object;
+        const erro = comunicado.novo('TDE','Dados de tipos errados','CPF deve ser um numero natural positivo, nome deve ser um texto nao vazio, telefone deve ter DDD e Numeros, numero da casa deve ser um natural positivo, complemento deve ser um texto não vazio e CEP deve ser numeros naturais positivos.').object;
         return res.status(422).json(erro); 
     }
 
-    const codigo = req.params.codigo;
+    const CPF = req.params.CPF;
 
-    if (codigo != livro.codigo) {
-        const erro = comunicado.novo('TMC','Mudanca de código','Tentativa de mudar codigo do livro').object;
+    if (CPF != cidadao.CPF) {
+        const erro = comunicado.novo('TMC','Mudanca de CPF','Tentativa de mudar o CPF').object;
         return res.status(400).json(erro); 
     }
 
-    let ret = await livros.recupereUm(codigo);
+    let ret = await cidadaos.recupereUm(CPF);
 
     if (ret === undefined) {
         const erro = comunicado.novo('CBD','Sem conexao com o BD','Não foi possivel estabelecer conexao com o banco de dados').object;
@@ -74,11 +74,11 @@ async function atualizacao(req,res) {
     }
 
     if (ret.length == 0) {
-        const erro = comunicado.novo('LNE','Livro inexistente','Não há livro cadastrado com esse código').object;
+        const erro = comunicado.novo('CNE','Cidadao inexistente','Não há cidadao cadastrado com esse CPF').object;
         return res.status(404).json(erro); 
     }
 
-    ret = await livros.atualize(livro);
+    ret = await cidadaos.atualize(cidadao);
 
     if (ret === undefined) {
         const erro = comunicado.novo('CBD','Sem conexao com o BD','Não foi possivel estabelecer conexao com o banco de dados').object;
@@ -90,7 +90,7 @@ async function atualizacao(req,res) {
         return res.status(409).json(erro); 
     }
 
-    const sucesso = comunicado.novo('ABS','Atualizacao bem sucedida','O livro foi Atualizado com sucesso').object;
+    const sucesso = comunicado.novo('ABS','Atualizacao bem sucedida','O cidadao foi Atualizado com sucesso').object;
     return res.status(201).json(sucesso); 
 }
 
@@ -101,8 +101,8 @@ async function remocao (req,res) {
         return res.status(422).json(erro); 
     }
 
-    const codigo = req.params.codigo;
-    let ret = await livros.recupereUm(codigo);
+    const CPF = req.params.CPF;
+    let ret = await cidadaos.recupereUm(CPF);
 
     if (ret === undefined) {
         const erro = comunicado.novo('CBD','Sem conexao com o BD','Não foi possivel estabelecer conexao com o banco de dados').object;
@@ -115,11 +115,11 @@ async function remocao (req,res) {
     }
 
     if (ret.length == 0) {
-        const erro = comunicado.novo('LNE','Livro inexistente','Não há livro cadastrado com esse código').object;
+        const erro = comunicado.novo('CNE','Cidadao inexistente','Não há cidadao cadastrado com esse código').object;
         return res.status(404).json(erro); 
     }
 
-    ret = await livros.remova(codigo);
+    ret = await cidadaos.remova(CPF);
 
     if (ret === undefined) {
         const erro = comunicado.novo('CBD','Sem conexao com o BD','Não foi possivel estabelecer conexao com o banco de dados').object;
@@ -131,7 +131,7 @@ async function remocao (req,res) {
         return res.status(409).json(erro); 
     }
 
-    const sucesso = comunicado.novo('RBS','Remocao bem sucedida','O livro foi removido com sucesso').object;
+    const sucesso = comunicado.novo('RBS','Remocao bem sucedida','O cidadao foi removido com sucesso').object;
     return res.status(201).json(sucesso);
 }
 
@@ -142,8 +142,8 @@ async function recuperacaoDeUm(req,res) {
         return res.status(422).json(erro); 
     }
 
-    const codigo = req.params.codigo;
-    const ret = await livrosDao.recupereUm(codigo);
+    const CPF = req.params.CPF;
+    const ret = await cidadaos.recupereUm(CPF);
 
     if (ret === undefined) {
         const erro = comunicado.novo('CBD','Sem conexao com o BD','Não foi possivel estabelecer conexao com o banco de dados').object;
@@ -156,7 +156,7 @@ async function recuperacaoDeUm(req,res) {
     }
 
     if (ret.length == 0) {
-        const erro = comunicado.novo('LNE','Livro inexistente','Não há livro cadastrado com esse código').object;
+        const erro = comunicado.novo('CNE','Cidadao inexistente','Não há Cidadao cadastrado com esse CPF').object;
         return res.status(404).json(erro); 
     }
 
@@ -170,7 +170,7 @@ async function recuperacaoDeTodos(req,res) {
         return res.status(422).json(erro); 
     }
 
-    const ret = await livros.recupereTodos();
+    const ret = await cidadaos.recupereTodos();
 
     if (ret === undefined) {
         const erro = comunicado.novo('CBD','Sem conexao com o BD','Não foi possivel estabelecer conexao com o banco de dados').object;
