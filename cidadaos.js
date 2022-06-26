@@ -7,7 +7,7 @@ async function inclua(cidadao) {
         return null;
 
     try {
-        const sql   = 'INSERT INTO cidadao (cid_cpf, cid_nome, cid_telefone, cid_numeroDaCasa, cid_complemento, cid_cep ) VALUES (?,?,?)';
+        const sql   = 'INSERT INTO cidadao (cid_cpf, cid_nome, cid_telefone, cid_numeroDaCasa, cid_complemento, cid_cep ) VALUES (?,?,?,?,?,?)';
         const dados = [cidadao.CPF, cidadao.nome, cidadao.telefone, cidadao.numeroCasa, cidadao.complemento, cidadao.CEP];
         await conexao.query (sql, dados);
         return true;

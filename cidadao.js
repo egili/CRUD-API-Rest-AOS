@@ -7,13 +7,13 @@ class Cidadao {
     #complemento;
     #CEP;
 
-    constructor(cpf, nome, numeroComDDD, numeroCasa, complemento, cep) {
-        this.CPF         = cpf;
+    constructor(CPF, nome, telefone, numeroCasa, complemento, CEP) {
+        this.CPF         = CPF;
         this.nome        = nome;
-        this.telefone    = numeroComDDD;
+        this.telefone    = telefone;
         this.numeroCasa  = numeroCasa;
         this.complemento = complemento;
-        this.CEP         = cep;
+        this.CEP         = CEP;
     }
 
     get CPF() {
@@ -35,26 +35,26 @@ class Cidadao {
         return this.#CEP;
     }
 
-    set CPF (cpf) {
-        if (cpf === undefined || typeof cpf !== 'number' || isNaN(cpf) || cpf !== parseInt(cpf) || cpf <= 0 || cpf.length() > 11 )
+    set CPF (CPF) {
+        if (CPF === undefined || typeof CPF !== 'number' || isNaN(CPF) || CPF !== parseInt(CPF) || CPF <= 0 || CPF.length() > 11 )
             throw ('CPF Invalido!!');
 
-        this.#CPF=cpf;
+        this.#CPF = CPF;
     }
 
     
-    set nome (nome) {
+    set Nome (nome) {
         if (nome === undefined || typeof nome !== 'string' || nome === "" )
             throw ('Nome Invalido!!');
 
-        this.#nome=nome;
+        this.#nome = nome;
     }
 
-    set Telefone (numeroComDDD) {
-        if (numeroComDDD === undefined || typeof numeroComDDD !== 'number' || isNaN(numeroComDDD) || numeroComDDD !== parseInt(numeroComDDD) ||  numeroComDDD.length() > 11  || numeroComDDD <= 0)
+    set Telefone (telefone) {
+        if (telefone === undefined || typeof telefone !== 'number' || isNaN(telefone) || telefone !== parseInt(telefone) ||  telefone.length() > 11  || telefone <= 0)
             throw ('Numero de telefone com DDD invalido!!');
 
-        this.#telefone = numeroComDDD;
+        this.#telefone = telefone;
     }
 
     set NumeroCasa (numeroCasa) {
@@ -71,11 +71,11 @@ class Cidadao {
         this.#complemento = complemento;
     }
 
-    set CEP (cep) {
-        if (cep === undefined || typeof cep !== 'number' || isNaN(cep) || cep !== parseInt(cep) || cep <= 0 ||  cep.length() > 8 )
+    set CEP (CEP) {
+        if (CEP === undefined || typeof CEP !== 'number' || isNaN(CEP) || CEP !== parseInt(CEP) || CEP <= 0 ||  CEP.length() > 8 )
             throw ('Numero CEP invalido!!');
 
-        this.#CEP = cep;
+        this.#CEP = CEP;
     }
 }
 
