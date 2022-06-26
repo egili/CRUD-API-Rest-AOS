@@ -8,43 +8,27 @@
   <link rel="stylesheet" type="text/css" href="css/principal.css">
 </head>
 
-<nav class="navbar navbar-light bg-light">
-  <section class="container">
-    <a class="navbar-brand">
-      <img src="" alt="" width="60" height="60">
-      <small class="text-muted">Cidadaos</small>
+<nav class="navbar bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img src="Img/CRUD.png" alt="" width="45" height="44" class="d-inline-block align-text-center">
+      CRUD-API-REST-AOS
     </a>
-  </section>
+  </div>
 </nav>
 
 <body>
-  <form action="/escolha" method="post">
-    <section id="formulario">
-      <legend><small class="text-muted">Bem-vindo(a)! <br> Defina o que gostaria de fazer:</small></legend>
-
-      <label style="display: flex; flex-direction: column; align-content: space-between;">
-        <section>
-          <input class="btn btn-secondary my-2 my-sm-0" type="submit" value="Cadastrar Cidadao"/>
-        </section>
-
-        <section>
-          <input class="btn btn-secondary my-2 my-sm-0" type="submit" value="Consultar Cidadao"/>
-        </section>
-
-        <section>
-          <input class="btn btn-secondary my-2 my-sm-0" type="submit" value="Consultar todos os Cidadaos Cadastrados"/>
-        </section>
-
-        <section>
-          <input class="btn btn-secondary my-2 my-sm-0" type="submit" value="Alterar Cidadao"/>
-        </section>
-
-        <section>
-          <input class="btn btn-secondary my-2 my-sm-0" type="submit" value="Deletar Cidadao"/>
-        </section>
-        
-      </label>
-    </section>
-  </form>
+  
+  <div id="formulario" class="d-grid gap-2 col-6 mx-auto">
+    <div id="legend"> Bem vindo(a) a nosso site de consultas ao banco! </br> Aqui você pode ver nossos usuários,
+      cadastrar novos, alterar ou incluir. </br> Escolha quais ações deseja fazer:
+    </div>
+    
+    <button class="btn btn-secondary" type="button" onclick= "window.location.href='https:...'">Inserir</button>
+    <button class="btn btn-secondary" type="button" onclick= "window.location.href='https:...'">Alterar</button>
+    <button class="btn btn-secondary" type="button" onclick= "window.location.href='https:...'">Deletar</button>
+    <button class="btn btn-secondary" type="button" onclick= "window.location.href='https:...'">Consultar</button>
+    <button class="btn btn-secondary" type="button" onclick= "window.location.href='https:...'">Consultar todos</button>
+  </div>
 </body>
 </html>
