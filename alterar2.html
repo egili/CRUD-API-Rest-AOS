@@ -9,6 +9,7 @@
         crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="css/pag.css">
     <script src="principal.js" defer></script>
+    <script src="node_modules/axios/dist/axios.min.js"></script>
 </head>
 
 <body>
@@ -25,7 +26,7 @@
     </div>
 </header>
 
-    <form action="/insertBDClientes" method="post">
+    <form>
         <div style="display: flex; flex-direction: column;" class="alert alert-primary" role="alert" id="formulario">
 
             <legend class="centro"><small class="text-muted">Informe as novas informações:</small></legend>
@@ -56,10 +57,7 @@
             </div>
             <br></br>
 
-            <form action="">
-                <button class="btn btn-secondary my-2 my-sm-0" type="submit">Enviar</button>
-            </form>
-
+            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Enviar</button>
         </div>
     </form>
 </body>
