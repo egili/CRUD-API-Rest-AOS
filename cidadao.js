@@ -8,27 +8,27 @@ class Cidadao {
     #CEP;
 
     constructor(CPF, nome, telefone, numeroCasa, complemento, CEP) {
-        this.CPF         = CPF;
-        this.nome        = nome;
-        this.telefone    = telefone;
-        this.numeroCasa  = numeroCasa;
-        this.complemento = complemento;
-        this.CEP         = CEP;
+        this.#CPF         = CPF;
+        this.#nome        = nome;
+        this.#telefone    = telefone;
+        this.#numeroCasa  = numeroCasa;
+        this.#complemento = complemento;
+        this.#CEP         = CEP;
     }
 
     get CPF() {
         return this.#CPF;
     }
-    get Nome() {
+    get nome() {
         return this.#nome;
     }
-    get Telefone() {
+    get telefone() {
         return this.#telefone;
     }
-    get NumeroCasa() {
+    get numeroCasa() {
         return this.#numeroCasa;
     }
-    get Complemento() {
+    get complemento() {
         return this.#complemento
     }
     get CEP() {
@@ -39,32 +39,32 @@ class Cidadao {
         if (CPF === undefined || typeof CPF !== 'number' || isNaN(CPF) || CPF !== parseInt(CPF) || CPF <= 0 || CPF.length() > 11 )
             throw ('CPF Invalido!!');
 
-        this.#CPF = CPF;
+        this.#CPF=CPF;
     }
 
     
-    set Nome (nome) {
+    set nome (nome) {
         if (nome === undefined || typeof nome !== 'string' || nome === "" )
             throw ('Nome Invalido!!');
 
-        this.#nome = nome;
+        this.#nome=nome;
     }
 
-    set Telefone (telefone) {
+    set telefone (telefone) {
         if (telefone === undefined || typeof telefone !== 'number' || isNaN(telefone) || telefone !== parseInt(telefone) ||  telefone.length() > 11  || telefone <= 0)
             throw ('Numero de telefone com DDD invalido!!');
 
         this.#telefone = telefone;
     }
 
-    set NumeroCasa (numeroCasa) {
+    set numeroCasa (numeroCasa) {
         if (numeroCasa === undefined || typeof numeroCasa !== 'number' || isNaN(numeroCasa) || numeroCasa !== parseInt(numeroCasa) || numeroCasa <= 0 )
             throw ('Numero de casa invalido!!');
 
         this.#numeroCasa = numeroCasa;
     }
 
-    set Complemento (complemento) {
+    set complemento (complemento) {
         if ( typeof complemento !== 'string' )
             throw ('Complemento Invalido!!');
         // NOTE: Complemento nao eh not null no bd, ent verifica somente se é uma string

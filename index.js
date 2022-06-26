@@ -1,4 +1,3 @@
-
 const bd       = require('./bd.js');
 const rotas    = require('./rotas.js');
 var cors = require('cors')

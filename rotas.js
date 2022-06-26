@@ -11,7 +11,6 @@ async function inclusao (req,res) {
         const erro = comunicado.novo('DdI','Dados inesperados','Não foram fornecidos exatamente as 6 informacões esperadas de um cidadao(CPF, nome, telefone, numeroCasa, complemento e CEP.)').object;
         return res.status(422).json(erro);
     }
-    console.log("Aqui")
     let cidadao;
 
     try{
