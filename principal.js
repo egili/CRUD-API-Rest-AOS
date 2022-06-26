@@ -71,8 +71,9 @@ function get() {
                                 <td>${data[0].telefone}</td>
                                 <td>${data[0].numeroCasa}</td>
                                 <td>${data[0].complemento}</td>
-                                <td>${data[0].CEP}</td>`;
-                                getCEP(data[0].CEP);
+                                <td>${data[0].CEP}</td>
+                                <tr>getCEP(data[0].CEP)</tr>`;
+                                
         
                                 
             document.querySelector("tbody#tabelaDados").appendChild(newTr);
@@ -107,8 +108,6 @@ function getAll() {
 }
 
 function getCEP(cep) {
-
-    //let cep = document.getElementById('cep').value;
 
     axios.get('https://api.postmon.com.br/v1/cep/' + cep)
     .then(result => {
