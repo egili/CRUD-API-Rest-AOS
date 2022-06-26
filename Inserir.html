@@ -3,6 +3,7 @@
     <meta charset="UTF-8" />
     <link rel="stylesheet" type="text/css" href="css/inserir.css">
     <script src="principal.js" defer></script>
+    <script src="node_modules/axios/dist/axios.min.js"></script>
 </head>
 
 <header>
@@ -22,7 +23,7 @@
 
 <body>
     <section>
-        <form action="/insertBDClientes" method="post">
+        <form>
             <section id="formulario" style="display: flex; flex-direction: column; align-items: center;">
 
                 <legend><small class="text-style">Digite as informações do Cidadão a ser cadastrado:</small></legend>
@@ -46,7 +47,7 @@
                     <label for="CEP" class="form-label">CEP:</label>
                     <input style="width: 100%;" class="input-style" type="text" class="form-control" id="CEP" name="CEP" placeholder="CEP do Cidadão" required>
                 </section>
-                
+
                 <section>
                     <label for="NumCa" class="form-label">Numero da Casa:</label>
                     <input style="width: 55%;" class="input-style" type="number" class="form-control" id="NumCa" name="NumCa" placeholder="Número da casa" required>
