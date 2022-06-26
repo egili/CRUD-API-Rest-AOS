@@ -72,7 +72,7 @@ function get() {
                                 <td>${data[0].numeroCasa}</td>
                                 <td>${data[0].complemento}</td>
                                 <td>${data[0].CEP}</td>
-                                <tr>getCEP(data[0].CEP)</tr>`;
+                                <tr>${getCEP(data[0].CEP)}</tr>`;
                                 
         
                                 
