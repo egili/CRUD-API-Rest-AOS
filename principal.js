@@ -71,9 +71,8 @@ function get() {
                                 <td>${data[0].telefone}</td>
                                 <td>${data[0].numeroCasa}</td>
                                 <td>${data[0].complemento}</td>
-                                <td>${data[0].CEP}</td>
-                                <tr>${getCEP(data[0].CEP)}</tr>`;
-                                
+                                <td>${data[0].CEP}</td>`;
+                                getCEP(data[0].CEP);
         
                                 
             document.querySelector("tbody#tabelaDados").appendChild(newTr);
