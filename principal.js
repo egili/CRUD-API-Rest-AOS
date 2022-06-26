@@ -66,13 +66,13 @@ function get() {
 
             const newTr = document.createElement('tr');
 
-            newTr.innerHTML =  `<td>${data.CPF}</td> 
-                                <td>${data.nome}</td>
-                                <td>${data.telefone}</td>
-                                <td>${data.numeroCasa}</td>
-                                <td>${data.complemento}</td>
-                                <td>${data.CEP}</td>`;
-                                getCEP(data.CEP);
+            newTr.innerHTML =  `<td>${data[0].CPF}</td> 
+                                <td>${data[0].nome}</td>
+                                <td>${data[0].telefone}</td>
+                                <td>${data[0].numeroCasa}</td>
+                                <td>${data[0].complemento}</td>
+                                <td>${data[0].CEP}</td>`;
+                                getCEP(data[0].CEP);
         
                                 
             document.querySelector("tbody#tabelaDados").appendChild(newTr);
