@@ -97,8 +97,6 @@ function getAll() {
                                 <td>${d.complemento}</td>
                                 <td>${d.CEP}</td>`;
                                 
-            getCEP(d.CEP);
-                                
             document.querySelector("tbody#tabelaDados").appendChild(newTr);
         }
         alert("Select *");
