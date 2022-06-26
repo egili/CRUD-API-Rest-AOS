@@ -1,6 +1,3 @@
-const e = require("express");
-const { json } = require("express");
-
 var attCpf ;
 
 function cadastrar() {
@@ -98,7 +95,7 @@ function getAll() {
                                 <td>${d.complemento}</td>
                                 <td>${d.CEP}</td>`          
                                 
-            document.querySelector("tr#tabelaDados").appendChild(newTr);
+            document.querySelector("tbody#tabelaDados").appendChild(newTr);
         }
         alert("Select *");
     })
