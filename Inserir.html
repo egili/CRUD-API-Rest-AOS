@@ -10,60 +10,61 @@
 </head>
 
 <nav class="navbar navbar-light bg-light">
-    <div class="container">
+    <section class="container">
         <a class="navbar-brand">
             <img src="/caminhoImagem1" alt="" width="60" height="60">
-            <small class="text-muted">Cidadoes</small>
+            <small class="text-muted">Cidadaos</small>
         </a>
         <form action="/">
             <button class="btn btn-secondary my-2 my-sm-0" type="submit">Voltar</button>
         </form>
-    </div>
+    </section>
 </nav>
 
 <body>
 
-    <div>
+    <section>
         <form action="/insertBDClientes" method="post">
-            <div id="formulario">
+            <section id="formulario">
 
                 <legend><small class="text-muted">Faça a insercao com informações válidas!!</small></legend>
 
-                <div class="col-md-4">
+                <section class="col-md-4">
                     <label for="nome" class="form-label">Nome</label>
                     <input type="text" class="form-control" id="nome" name="nome" placeholder="Seu nome" required>
-                </div>
+                </section>
 
-                <div class="col-md-4">
+                <section class="col-md-4">
                     <label for="nome" class="form-label">Telefone</label>
                     <input type="text" class="form-control" id="tel" name="tel" placeholder="Seu telefone" required>
-                </div>
-                <div class="col-md-4">
+                </section>
+
+                <section class="col-md-4">
                     <label for="nome" class="form-label">CPF</label>
                     <input type="text" class="form-control" id="CPF" name="CPF" placeholder="Seu CPF" required>
-                </div>
+                </section>
 
-                <div class="col-md-4">
+                <section class="col-md-4">
                     <label for="cpf" class="form-label">CEP</label>
                     <input type="text" class="form-control" id="CEP" name="CEP" placeholder="Seu CEP" required>
-                </div>
+                </section>
                 
-                <div class="col-md-4">
+                <section class="col-md-4">
                     <label for="cpf" class="form-label">Numero  da Casa</label>
                     <input type="text" class="form-control" id="NumCa" name="NumCa" placeholder="NUmero da casa" required>
-                </div>
+                </section>
 
-                <div class="col-md-4">
+                <section class="col-md-4">
                     <label for="cpf" class="form-label">Complemento</label>
                     <input type="text" class="form-control" id="complemeto" name="complemeto" placeholder="complemeto casa" required>
-                </div>
+                </section>
 
 
                 <form action="">
                     <button class="btn btn-secondary my-2 my-sm-0" type="submit">Enviar</button>
                 </form>
-            </div>
+            </section>
         </form>
-    </div>
+    </section>
 </body>
 </html>

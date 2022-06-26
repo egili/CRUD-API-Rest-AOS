@@ -10,7 +10,7 @@
 </head>
 
 <nav class="navbar navbar-light bg-light">
-    <div class="container">
+    <section class="container">
         <a class="navbar-brand">
             <img src="/caminhoImagem1" alt="" width="60" height="60">
             <small class="text-muted">Olivra</small>
@@ -18,27 +18,24 @@
         <form action="/">
             <button class="btn btn-secondary my-2 my-sm-0" type="submit">Voltar</button>
         </form>
-    </div>
+    </section>
 </nav>
 
 <body>
 
-    <div>
+    <section>
         <form action="/insertBDClientes" method="post">
-            <div id="formulario">
-
+            <section id="formulario">
                 <legend><small class="text-muted">Digite o CPF do cidadao que deseja deletar</small></legend>
-
-                <div class="col-md-4">
+                <section class="col-md-4">
                     <label for="nome" class="form-label">CPF</label>
                     <input type="text" class="form-control" id="CPF" name="CPF" placeholder="Seu CPF" required>
-                </div>
-
+                </section>
                 <form action="">
                     <button class="btn btn-secondary my-2 my-sm-0" type="submit">Enviar</button>
                 </form>
-            </div>
+            </section>
         </form>
-    </div>
+    </section>
 </body>
 </html>
