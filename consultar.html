@@ -1,49 +1,49 @@
 <html>
    <head>
-      <title>Lista pedidos</title>
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-      <link rel="stylesheet" type="text/css" href="css/consult.css">
+      <meta charset="UTF-8" />
+      <link rel="stylesheet" type="text/css" href="css/consultar.css">
    </head>
 
-      <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-         <img src="/caminhoImagem1" alt="" width="60" height="60">
-         <h4 class="text-muted">Olivra</h4>
-      </nav>
-   <body>
+   <header>
+      <section class="consult-style">
+         <small>Consultar Cidadão</small>
+         <form action="/">
+            <button class="back-style button-style" type="submit">Voltar</button>
+         </form>
+         <hr class="line-style">
+      </section>
+   </header>
 
-      <section id="formulario">
-         <br><h1>Listagem do cidadao</h1><br><br>
-            <section>
-               <table class="table">
-                  <thead class="thead-dark">
-                     <tr>
-                        <th>ID</th>
-                        <th>ID_PROD</th>
-                        <th>QUANTIDADE</th>
-                        <th>VALORTOTAL</th>
-                        <th>DT_PEDIDO</th>
-                        <th>DT_PEDIDO</th>
-                        <th>DT_PEDIDO</th>
-                     </tr>
-                  </thead>
-                  <tbody>
-                     <tr for (cliente in data.clientes)>
-                        <td>${cliente.id}</td>
-                        <td>${cliente.id_prod}</td>
-                        <td>${cliente.qtd}</td>
-                        <td>${cliente.ValorTotal}</td>
-                        <td>${cliente.dt_pedido}</td>
-                        <td>${cliente.dt_pedido}</td>
-                        <td>${cliente.dt_pedido}</td>
-                     </tr>
-                  </tbody>
-               </table>
-            </section>
+      <section id="formulario" style="display: flex; flex-direction: column; align-items: center;">
+         <br><h1 style="margin-bottom: 10px;">Dados do Cidadão</h1><br><br>
+         
+            <table>
+               <thead>
+                  <tr>
+                     <th>CPF</th>
+                     <th>NOME</th>
+                     <th>TELEFONE</th>
+                     <th>NÚMERO DA CASA</th>
+                     <th>COMPLEMENTO</th>
+                     <th>CEP</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr style="text-align: center;">
+                     <td>00000000000</td>
+                     <td>eliseu dos deuses</td>
+                     <td>1998863674</td>
+                     <td>22</td>
+                     <td>nao tem</td>
+                     <td>13140109</td>
+                  </tr>
+               </tbody>
+            </table>
+            
       </section>
 
-      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <!--script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script-->
 </body>
 </html>

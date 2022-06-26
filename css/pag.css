@@ -10,7 +10,7 @@ body{
 }
 
 legend{
-  font-style:bold;
+  font-style: bold;
   font-family: ”Times New Roman”;    
 }
   
@@ -18,7 +18,20 @@ small{
   font-style:bold;
   font-family: ”Times New Roman”;
 }
+
 a{
   color:dimgray;
   text-align: justify;
+}
+
+.meio{
+  border-radius: 25px;
+}
+
+div {
+  width:350px;
+}
+
+.centro{
+  text-align: center;
 }
