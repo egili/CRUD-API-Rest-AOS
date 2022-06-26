@@ -6,12 +6,6 @@ body{
     color: rgb(47, 43, 59);
 }
 
-.consult-style{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-}
-
 .line-style{
     margin-top: 0px;
     height: 15px;
@@ -35,4 +29,11 @@ body{
     font-size: larger;
     font-weight: bold;
     color: rgb(47, 43, 59);
+}
+
+.cpf-style{
+    white-space: nowrap;
+    color: rgb(99, 89, 136);
+    font-size: medium;
+    width: 100%;
 }

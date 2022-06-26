@@ -1,4 +1,4 @@
-<html>
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8" />
@@ -8,41 +8,45 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="css/pag.css">
+    <script src="principal.js" defer></script>
+    <script src="node_modules/axios/dist/axios.min.js"></script>
 </head>
 
-<nav class="navbar navbar-light bg-light">
-    <div class="container-fluid">
-        <a class="navbar-brand">
-            <img src="/Img/CRUD.png" alt="" width="45" height="44" class="d-inline-block align-text-center">
-            CRUD-API-REST-AOS           
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="/Principal.html">
+            <img src="/Img/CRUD.png" alt="" width="60" height="60">
+            <small class="text-muted">Cidadãos</small>
         </a>
-        <form action="/">
-            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Voltar</button>
-        </form>
+
+        <a href="/Principal.html">
+            <button class="btn btn-secondary my-2 my-sm-0"  onclick= "window.location.href='http://127.0.0.1:5500/alterar2.html'" type="submit">Voltar</button>
+        </a>
+
     </div>
 </nav>
 
 <body>
- 
-    <div>
+    <section>
         
-        <form action="/insertBDClientes" method="post">
-            <div style="display: flex; flex-direction: column;" class="alert alert-primary" role="alert" id="formulario">
+        <form action="#">
+            <section style="display: flex; flex-direction: column;" class="alert alert-primary" role="alert" id="formulario">
 
-                <legend class="centro"><small class="text-muted">Insira o CPF que deseja alterar!</small></legend>
-            
-                <div class="col-md-6">
+                <legend class="centro"><small class="text-muted">Insira o CPF do Cidadão que deseja alterar!</small></legend>
+                
+                <section class="col-md-6">
                     <label for="nome" class="form-label">CPF</label>
                     <input type="text" class="form-control" id="CPF" name="CPF" placeholder="Seu CPF" required>
-                </div>
-                <br></br>
-               <form action="">
-                    <button class="btn btn-secondary my-2 my-sm-0" type="submit">Enviar</button>
-                </form>
-            </div>
-        </form>
-    </div>
-    
-</body>
+                </section>
 
+                </br>
+
+                <a href="/alterar2.html">
+                    <button id="btnAtt" class="btn btn-secondary my-2 my-sm-0" onclick="alterar()">Enviar</button>
+                </a>
+
+            </section>
+        </form>
+    </section>
+</body>
 </html>

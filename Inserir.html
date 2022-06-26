@@ -1,22 +1,29 @@
-<html>
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" type="text/css" href="css/inserir.css">
+    <script src="principal.js" defer></script>
+    <script src="node_modules/axios/dist/axios.min.js"></script>
 </head>
 
 <header>
     <section class="insert-style">
-        <small>Cadastrar Cidadão</small>
-        <form action="">
+        
+        <a class="navbar-brand" href="/Principal.html">
+        <img src="Img/CRUD.png" alt="" width="45" height="44">
+            CRUD-API-REST-AOS
+        </a>
+        
+        <a href="/Principal.html">
             <button class="back-style button-style" type="submit" onclick= "window.location.href='http://127.0.0.1:5500/Principal.html'">Voltar</button>
-        </form>
+        </a>
         <hr class="line-style">
     </section>
 </header>
 
 <body>
     <section>
-        <form action="/insertBDClientes" method="post">
+
             <section id="formulario" style="display: flex; flex-direction: column; align-items: center;">
 
                 <legend><small class="text-style">Digite as informações do Cidadão a ser cadastrado:</small></legend>
@@ -27,35 +34,34 @@
                 </section>
 
                 <section>
-                    <label for="nome" class="form-label">Telefone:</label>
+                    <label for="tel" class="form-label">Telefone:</label>
                     <input style="width: 80%;" class="input-style" type="text" class="form-control" id="tel" name="tel" placeholder="Telefone do Cidadão" required>
                 </section>
 
                 <section>
-                    <label for="nome" class="form-label">CPF:</label>
+                    <label for="CPF" class="form-label">CPF:</label>
                     <input style="width: 100%;" class="input-style" type="text" class="form-control" id="CPF" name="CPF" placeholder="CPF do Cidadão" required>
                 </section>
 
                 <section>
-                    <label for="cpf" class="form-label">CEP:</label>
+                    <label for="CEP" class="form-label">CEP:</label>
                     <input style="width: 100%;" class="input-style" type="text" class="form-control" id="CEP" name="CEP" placeholder="CEP do Cidadão" required>
                 </section>
-                
+
                 <section>
-                    <label for="cpf" class="form-label">Numero da Casa:</label>
+                    <label for="NumCa" class="form-label">Numero da Casa:</label>
                     <input style="width: 55%;" class="input-style" type="number" class="form-control" id="NumCa" name="NumCa" placeholder="Número da casa" required>
                 </section>
 
                 <section>
-                    <label for="cpf" class="form-label">Complemento:</label>
+                    <label for="complemento" class="form-label">Complemento:</label>
                     <input style="width: 62%;" class="input-style" type="text" class="form-control" id="complemento" name="complemento" placeholder="Complemento do Cidadão" required>
                 </section>
 
-                <form action="">
-                    <button class="next-style button-style" type="submit">Cadastrar</button>
-                </form>
+                <button class="next-style button-style" type="submit" onclick="cadastrar()">Cadastrar</button>
+
             </section>
-        </form>
+
     </section>
 </body>
 </html>

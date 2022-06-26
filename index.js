@@ -42,11 +42,11 @@ async function ativacaoDoServidor() {
         next();
     });
 
-    app.post('/cidadaos'           ,rotas.inclusao);
-    app.put('/cidadaos/:CPF'       ,rotas.atualizacao);
-    app.delete('/cidadaos/:CPF'    ,rotas.remocao);
-    app.get('/cidadaos/:CPF'       ,rotas.recuperacaoDeUm);
-    app.get('/cidadaos'            ,rotas.recuperacaoDeTodos);
+    app.post('/cidadaos'           , rotas.inclusao);
+    app.put('/cidadaos/:CPF'       , rotas.atualizacao);
+    app.delete('/cidadaos/:CPF'    , rotas.remocao);
+    app.get('/cidadaos/:CPF'       , rotas.recuperacaoDeUm);
+    app.get('/cidadaos'            , rotas.recuperacaoDeTodos);
 
     console.log('Servidor rodando na porta 3000...');
     app.listen(3000);
