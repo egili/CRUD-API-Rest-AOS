@@ -3,6 +3,7 @@
       <meta charset="UTF-8" />
       <link rel="stylesheet" type="text/css" href="css/consultar.css">
       <script src="principal.js" defer></script>
+      <script src="node_modules/axios/dist/axios.min.js"></script>
    </head>
 
    <header>
@@ -20,9 +21,9 @@
 
    <section>
       <label class="">Digite o CPF do Cidadão:</label>
-      <input id="upCPF" class="">
+      <input id="cpf" class="">
       <div id="txt" class="form-text" style="white-space: nowrap;">São aceitos somente números naturais positivos entre 0-11.</div>
-      <button id="cpf" class="" type="button" onclick="get()">Consultar</button>
+      <button id="btn" class="" type="button" onclick="get()">Consultar</button>
    </section>
 
       <section id="formulario" style="display: flex; flex-direction: column; align-items: center;">
