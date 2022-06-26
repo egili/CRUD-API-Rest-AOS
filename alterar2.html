@@ -25,46 +25,41 @@
 </nav>
 
 <body>
+    <form action="/insertBDClientes" method="post">
+        <div style="display: flex; flex-direction: column;" class="alert alert-primary" role="alert" id="formulario">
 
-    <div>
-        <form action="/insertBDClientes" method="post">
-            <div style="display: flex; flex-direction: column;" class="alert alert-primary" role="alert" id="formulario">
-
-                <legend class="centro"><small class="text-muted">Informe as novas informações:</small></legend>
+            <legend class="centro"><small class="text-muted">Informe as novas informações:</small></legend>
 
 
-                <div class="col-md-8">
-                    <label for="nome" class="form-label">Nome</label>
-                    <input type="text" class="form-control" id="nome" name="nome" placeholder="Novo nome" required>
-                </div>
-
-                <div class="col-md-8">
-                    <label for="nome" class="form-label">Telefone</label>
-                    <input type="text" class="form-control" id="tel" name="tel" placeholder="Novo telefone" required>
-                </div>
-                
-                <div class="col-md-8">
-                    <label for="cpf" class="form-label">CEP</label>
-                    <input type="text" class="form-control" id="CEP" name="CEP" placeholder="Novo CEP" required>
-                </div>
-                
-                <div class="col-md-8">
-                    <label for="cpf" class="form-label">Numero  da Casa</label>
-                    <input type="text" class="form-control" id="NumCa" name="NumCa" placeholder="Novo Numero da casa" required>
-                </div>
-
-                <div class="col-md-8">
-                    <label for="cpf" class="form-label">Complemento</label>
-                    <input type="text" class="form-control" id="complemeto" name="complemeto" placeholder="Novo complemeto casa" required>
-                </div>
-                <br></br>
-                <form action="">
-                    <button class="btn btn-secondary my-2 my-sm-0" type="submit">Enviar</button>
-                </form>
+            <div class="col-md-8">
+                <label for="nome" class="form-label">Nome</label>
+                <input type="text" class="form-control" id="nome" name="nome" placeholder="Novo nome" required>
             </div>
-        </form>
-    </div>
+
+            <div class="col-md-8">
+                <label for="nome" class="form-label">Telefone</label>
+                <input type="text" class="form-control" id="tel" name="tel" placeholder="Novo telefone" required>
+            </div>
+            
+            <div class="col-md-8">
+                <label for="cpf" class="form-label">CEP</label>
+                <input type="text" class="form-control" id="CEP" name="CEP" placeholder="Novo CEP" required>
+            </div>
+            
+            <div class="col-md-8">
+                <label for="cpf" class="form-label">Numero  da Casa</label>
+                <input type="text" class="form-control" id="NumCa" name="NumCa" placeholder="Novo Numero da casa" required>
+            </div>
+
+            <div class="col-md-8">
+                <label for="cpf" class="form-label">Complemento</label>
+                <input type="text" class="form-control" id="complemeto" name="complemeto" placeholder="Novo complemeto casa" required>
+            </div>
+            <br></br>
+            <form action="">
+                <button class="btn btn-secondary my-2 my-sm-0" type="submit">Enviar</button>
+            </form>
+        </div>
+    </form>
 </body>
-
 </html>
-
