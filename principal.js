@@ -71,7 +71,9 @@ function get() {
                                 <td>${data.telefone}</td>
                                 <td>${data.numeroCasa}</td>
                                 <td>${data.complemento}</td>
-                                <td>${data.CEP}</td>`          
+                                <td>${data.CEP}</td>`;
+                                getCEP(data.CEP);
+        
                                 
             document.querySelector("tbody#tabelaDados").appendChild(newTr);
     })
@@ -93,7 +95,9 @@ function getAll() {
                                 <td>${d.telefone}</td>
                                 <td>${d.numeroCasa}</td>
                                 <td>${d.complemento}</td>
-                                <td>${d.CEP}</td>`          
+                                <td>${d.CEP}</td>`;
+                                
+            getCEP(d.CEP);
                                 
             document.querySelector("tbody#tabelaDados").appendChild(newTr);
         }
@@ -102,4 +106,23 @@ function getAll() {
     .catch(error => {
         console.log(error);
     })
+}
+
+function getCEP(cep) {
+
+    //let cep = document.getElementById('cep').value;
+
+    axios.get('https://api.postmon.com.br/v1/cep/' + cep)
+    .then(result => {
+        let data = result.data;
+
+            const newTr = document.createElement('tr');
+
+            newTr.innerHTML =  `<td>${data.logradouro}</td> 
+                                <td>${data.bairro}</td>
+                                <td>${data.cidade}</td>`
+                                
+            document.querySelector("tbody#tabelaDados").appendChild(newTr);
+    })
+
 }
