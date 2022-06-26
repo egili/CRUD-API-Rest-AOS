@@ -10,7 +10,6 @@ function cadastrar() {
 
     axios.post('http://localhost:3000/cidadaos', json)
         .then((e) => {
-            location.reload();
             alert("Dados Enviados com sucesso");
         })
         .catch((err) => {
