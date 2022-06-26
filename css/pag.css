@@ -17,3 +17,15 @@ small{
   font-style:bold;
   font-family: ”Times New Roman”;
 }
+
+.meio{
+  border-radius: 25px;
+}
+
+div {
+  width:350px;
+}
+
+.centro{
+  text-align: center;
+}
