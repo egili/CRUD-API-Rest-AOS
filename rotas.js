@@ -1,7 +1,7 @@
 const bdConfig   = require ('./bdconfig.js');
 const bd         = require ('./bd.js');
-const cidadaos   = require ('./cidadaos.js');
-const cidadao    = require ('./cidadao.js');
+const Cidadaos   = require ('./cidadaos.js');
+const Cidadao    = require ('./cidadao.js');
 const comunicado = require ('./comunicado.js');
 
 // para a rota do create
@@ -11,18 +11,17 @@ async function inclusao (req,res) {
         const erro = comunicado.novo('DdI','Dados inesperados','Não foram fornecidos exatamente as 6 informacões esperadas de um cidadao(CPF, nome, telefone, numeroCasa, complemento e CEP.)').object;
         return res.status(422).json(erro);
     }
-
     let cidadao;
 
     try{
-        cidadao = cidadao.novo(req.body.CPF, req.body.nome, req.body.telefone, req.body.numeroCasa, req.body.complemento, req.body.CEP);
+        cidadao = Cidadao.novoCidadao(req.body.CPF, req.body.nome, req.body.telefone, req.body.numeroCasa, req.body.complemento, req.body.CEP);
     }
     catch (excecao) {
         const erro = comunicado.novo('TDE','Dados de tipos errados','CPF deve ser um numero natural positivo, nome deve ser um texto nao vazio, telefone deve ter DDD e Numeros, numero da casa deve ser um natural positivo, complemento deve ser um texto não vazio e CEP deve ser numeros naturais positivos.').object;
         return res.status(422).json(erro); 
     }
 
-    const ret = await cidadaos.inclua(cidadao);
+    const ret = await Cidadaos.inclua(cidadao);
 
     if (ret === undefined) {
         const erro = comunicado.novo('CBD','Sem conexao com o BD','Não foi possivel estabelecer conexao com o banco de dados').object;
@@ -48,7 +47,7 @@ async function atualizacao(req,res) {
     let cidadao;
 
     try {
-        cidadao = cidadao.novo(req.body.CPF, req.body.nome, req.body.telefone, req.body.numeroCasa, req.body.complemento, req.body.CEP);
+        cidadao = Cidadao.novoCidadao(req.body.CPF, req.body.nome, req.body.telefone, req.body.numeroCasa, req.body.complemento, req.body.CEP);
     } catch (excecao) {
         const erro = comunicado.novo('TDE','Dados de tipos errados','CPF deve ser um numero natural positivo, nome deve ser um texto nao vazio, telefone deve ter DDD e Numeros, numero da casa deve ser um natural positivo, complemento deve ser um texto não vazio e CEP deve ser numeros naturais positivos.').object;
         return res.status(422).json(erro); 
@@ -61,7 +60,7 @@ async function atualizacao(req,res) {
         return res.status(400).json(erro); 
     }
 
-    let ret = await cidadaos.recupereUm(CPF);
+    let ret = await Cidadaos.recupereUm(CPF);
 
     if (ret === undefined) {
         const erro = comunicado.novo('CBD','Sem conexao com o BD','Não foi possivel estabelecer conexao com o banco de dados').object;
@@ -78,7 +77,7 @@ async function atualizacao(req,res) {
         return res.status(404).json(erro); 
     }
 
-    ret = await cidadaos.atualize(cidadao);
+    ret = await Cidadaos.atualize(cidadao);
 
     if (ret === undefined) {
         const erro = comunicado.novo('CBD','Sem conexao com o BD','Não foi possivel estabelecer conexao com o banco de dados').object;
@@ -96,13 +95,13 @@ async function atualizacao(req,res) {
 
 async function remocao (req,res) {
 
-    if (Objects.values(req.body).length != 0) {
+    if (Object.values(req.body).length != 0) {
         const erro = comunicado.novo('DSP','Fornecimento de dados sem proposito','Foram fornecidos dados desnecessarios').object;
         return res.status(422).json(erro); 
     }
 
     const CPF = req.params.CPF;
-    let ret = await cidadaos.recupereUm(CPF);
+    let ret = await Cidadaos.recupereUm(CPF);
 
     if (ret === undefined) {
         const erro = comunicado.novo('CBD','Sem conexao com o BD','Não foi possivel estabelecer conexao com o banco de dados').object;
@@ -119,7 +118,7 @@ async function remocao (req,res) {
         return res.status(404).json(erro); 
     }
 
-    ret = await cidadaos.remova(CPF);
+    ret = await Cidadaos.remova(CPF);
 
     if (ret === undefined) {
         const erro = comunicado.novo('CBD','Sem conexao com o BD','Não foi possivel estabelecer conexao com o banco de dados').object;
@@ -137,13 +136,13 @@ async function remocao (req,res) {
 
 async function recuperacaoDeUm(req,res) {
 
-    if (Objects.values(req.body).length != 0) {
+    if (Object.values(req.body).length != 0) {
         const erro = comunicado.novo('DSP','Fornecimento de dados sem proposito','Foram fornecidos dados desnecessarios').object;
         return res.status(422).json(erro); 
     }
 
     const CPF = req.params.CPF;
-    const ret = await cidadaos.recupereUm(CPF);
+    const ret = await Cidadaos.recupereUm(CPF);
 
     if (ret === undefined) {
         const erro = comunicado.novo('CBD','Sem conexao com o BD','Não foi possivel estabelecer conexao com o banco de dados').object;
@@ -165,12 +164,12 @@ async function recuperacaoDeUm(req,res) {
 
 async function recuperacaoDeTodos(req,res) {
 
-    if (Objects.values(req.body).length != 0) {
+    if (Object.values(req.body).length != 0) {
         const erro = comunicado.novo('DSP','Fornecimento de dados sem proposito','Foram fornecidos dados desnecessarios').object;
         return res.status(422).json(erro); 
     }
 
-    const ret = await cidadaos.recupereTodos();
+    const ret = await Cidadaos.recupereTodos();
 
     if (ret === undefined) {
         const erro = comunicado.novo('CBD','Sem conexao com o BD','Não foi possivel estabelecer conexao com o banco de dados').object;

@@ -1,4 +1,3 @@
-const express  = require('express');
 const bd       = require('./bd.js');
 const rotas    = require('./rotas.js');
 var cors = require('cors')
@@ -44,9 +43,9 @@ async function ativacaoDoServidor() {
     });
 
     app.post('/cidadaos'           ,rotas.inclusao);
-    app.put('/cidadaos/:cpf'       ,rotas.atualizacao);
-    app.delete('/cidadaos/:cpf'    ,rotas.remocao);
-    app.get('/cidadaos/:cpf'       ,rotas.recuperacaoDeUm);
+    app.put('/cidadaos/:CPF'       ,rotas.atualizacao);
+    app.delete('/cidadaos/:CPF'    ,rotas.remocao);
+    app.get('/cidadaos/:CPF'       ,rotas.recuperacaoDeUm);
     app.get('/cidadaos'            ,rotas.recuperacaoDeTodos);
 
     console.log('Servidor rodando na porta 3000...');
