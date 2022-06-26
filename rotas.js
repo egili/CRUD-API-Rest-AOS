@@ -45,7 +45,7 @@ async function atualizacao(req,res) {
     }
 
     let cidadao;
-
+    console.log(req.body.CPF, req.body.nome, req.body.telefone, req.body.numeroCasa, req.body.complemento, req.body.CEP)
     try {
         cidadao = Cidadao.novoCidadao(req.body.CPF, req.body.nome, req.body.telefone, req.body.numeroCasa, req.body.complemento, req.body.CEP);
     } catch (excecao) {

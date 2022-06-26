@@ -21,9 +21,11 @@ async function atualize (cidadao) {
     if(conexao==null) 
         return null;
 
+
     try {
         const sql   = 'UPDATE cidadao SET nome=?, telefone=?, numeroCasa=?, complemento=?, CEP=?  WHERE CPF=?';
         const dados = [cidadao.nome, cidadao.telefone, cidadao.numeroCasa, cidadao.complemento, cidadao.CEP,cidadao.CPF];
+        console.log(dados)
         await conexao.query (sql,dados);
         return true;
     } catch (excecao) {

@@ -1,4 +1,4 @@
-let attCpf;
+var attCpf ;
 
 function cadastrar() {
     let nome = document.getElementById('nome').value;
@@ -22,8 +22,8 @@ function cadastrar() {
 function alterar() {
     let cpf = document.getElementById('CPF').value;
 
-    attCpf = cpf;
-
+    this.attCpf = cpf;
+    console.log(attCpf)
     document.location.assign('http://127.0.0.1:5500/alterar2.html')
 }
 
@@ -33,10 +33,10 @@ function alterar2() {
     let cep = document.getElementById('CEP').value;
     let numCasa = document.getElementById('NumCa').value;
     let complemento = document.getElementById('complemento').value;
-
+    console.log(attCpf)
     const json = {"CPF": attCpf, "nome": nome, "telefone": tel, "numeroCasa": numCasa, "complemento": complemento, "CEP": cep};
 
-    axios.put(`http://localhost:3000/cidadaos/${attCpf}`, json)
+    axios.put('http://localhost:3000/cidadaos/'+attCpf, json)
     .then((e) => {
         alert("Dados Enviados com sucesso");
     })
@@ -44,5 +44,3 @@ function alterar2() {
         console.log(err);
     })
 }
-
-document.getElementById('btnAtt').addEventListener('click', alterar);
