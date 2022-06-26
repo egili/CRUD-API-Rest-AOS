@@ -46,8 +46,8 @@ function alterar2() {
 }
 
 function deletar() {
-    let cpf = document.getElementById('cpf').value;
-    console.log(cpf)
+    let cpf = document.getElementById('txt').value;
+
     axios.delete('http://localhost:3000/cidadaos/' + cpf)
     .then((e) => {
         alert("Cidadão deletado");
@@ -63,21 +63,18 @@ function get() {
     axios.get('http://localhost:3000/cidadaos/' + cpf)
     .then(result => {
             let data = result.data;
-            console.log(result.data)
-        if(data != undefined){
+
             const newTr = document.createElement('tr');
 
-            newTr.innerHTML =  `<td>${data[0].CPF}</td> 
-                                <td>${data[0].nome}</td>
-                                <td>${data[0].telefone}</td>
-                                <td>${data[0].numeroCasa}</td>
-                                <td>${data[0].complemento}</td>
-                                <td>${data[0].CEP}</td>`          
+            newTr.innerHTML =  `<td>${data.CPF}</td> 
+                                <td>${data.nome}</td>
+                                <td>${data.telefone}</td>
+                                <td>${data.numeroCasa}</td>
+                                <td>${data.complemento}</td>
+                                <td>${data.CEP}</td>`          
                                 
             document.querySelector("tbody#tabelaDados").appendChild(newTr);
-        }
-        })
-
+    })
     .catch((err) => {
         console.log(err);
     })
@@ -98,8 +95,7 @@ function getAll() {
                                 <td>${d.complemento}</td>
                                 <td>${d.CEP}</td>`          
                                 
-            document.querySelector("tbody
-            #tabelaDados").appendChild(newTr);
+            document.querySelector("tbody#tabelaDados").appendChild(newTr);
         }
         alert("Select *");
     })

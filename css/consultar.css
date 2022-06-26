@@ -30,3 +30,10 @@ body{
     font-weight: bold;
     color: rgb(47, 43, 59);
 }
+
+.cpf-style{
+    white-space: nowrap;
+    color: rgb(99, 89, 136);
+    font-size: medium;
+    width: 100%;
+}
