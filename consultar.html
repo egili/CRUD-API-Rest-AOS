@@ -7,18 +7,23 @@
 
    <header>
       <section style="display: flex; flex-direction: column;">
-         
          <a style="justify-self: flex-start;" href="/Principal.html">
          <img clas="header-subitem-style" src="Img/CRUD.png" alt="" width="45" height="44">
             CRUD-API-REST-AOS
          </a>
-         
          <a href="/Principal.html"  style="justify-self: flex-end;">
             <button class="back-style button-style" type="submit" onclick= "window.location.href='http://127.0.0.1:5500/Principal.html'">Voltar</button>
          </a>
          <hr class="line-style">
       </section>
    </header>
+
+   <section>
+      <label class="">Digite o CPF do Cidadão:</label>
+      <input id="upCPF" class="">
+      <div id="txt" class="form-text" style="white-space: nowrap;">São aceitos somente números naturais positivos entre 0-11.</div>
+      <button id="cpf" class="" type="button" onclick="get()">Consultar</button>
+   </section>
 
       <section id="formulario" style="display: flex; flex-direction: column; align-items: center;">
          <br><h1 style="margin-bottom: 10px;">Dados do Cidadão</h1><br><br>
@@ -34,15 +39,7 @@
                      <th>CEP</th>
                   </tr>
                </thead>
-               <tbody>
-                  <tr style="text-align: center;">
-                     <td>00000000000</td>
-                     <td>eliseu dos deuses</td>
-                     <td>1998863674</td>
-                     <td>22</td>
-                     <td>nao tem</td>
-                     <td>13140109</td>
-                  </tr>
+               <tbody id="tabelaDados">
                </tbody>
             </table>
             

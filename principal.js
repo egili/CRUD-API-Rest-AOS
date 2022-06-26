@@ -1,3 +1,6 @@
+const e = require("express");
+const { json } = require("express");
+
 var attCpf ;
 
 function cadastrar() {
@@ -36,11 +39,70 @@ function alterar2() {
     console.log(attCpf)
     const json = {"CPF": attCpf, "nome": nome, "telefone": tel, "numeroCasa": numCasa, "complemento": complemento, "CEP": cep};
 
-    axios.put('http://localhost:3000/cidadaos/'+attCpf, json)
+    axios.put('http://localhost:3000/cidadaos/' + attCpf, json)
     .then((e) => {
         alert("Dados Enviados com sucesso");
     })
     .catch((err) => {
         console.log(err);
+    })
+}
+
+function deletar() {
+    let cpf = document.getElementById('txt').value;
+
+    axios.delete('http://localhost:3000/cidadaos/' + cpf)
+    .then((e) => {
+        alert("Cidadão deletado");
+    })
+    .catch((err) => {
+        console.log(err);
+    })
+}
+
+function get() {
+    let cpf = document.getElementById('cpf').value;
+
+    axios.get('http://localhost:3000/cidadaos/' + cpf)
+    .then(result => {
+            let data = result.data;
+
+            const newTr = document.createElement('tr');
+
+            newTr.innerHTML =  `<td>${data.CPF}</td> 
+                                <td>${data.nome}</td>
+                                <td>${data.telefone}</td>
+                                <td>${data.numeroCasa}</td>
+                                <td>${data.complemento}</td>
+                                <td>${data.CEP}</td>`          
+                                
+            document.querySelector("tbody#tabelaDados").appendChild(newTr);
+    })
+    .catch((err) => {
+        console.log(err);
+    })
+}
+
+function getAll() {
+    axios.get('http://localhost:3000/cidadaos')
+    .then(result => {
+        let data = result.data;
+
+        for(let d of data) {
+            const newTr = document.createElement('tr');
+
+            newTr.innerHTML =  `<td>${d.CPF}</td> 
+                                <td>${d.nome}</td>
+                                <td>${d.telefone}</td>
+                                <td>${d.numeroCasa}</td>
+                                <td>${d.complemento}</td>
+                                <td>${d.CEP}</td>`          
+                                
+            document.querySelector("tr#tabelaDados").appendChild(newTr);
+        }
+        alert("Select *");
+    })
+    .catch(error => {
+        console.log(error);
     })
 }
