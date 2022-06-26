@@ -2,14 +2,13 @@ body{
   background-color: #D3D3D3; 
 }
 
-#formulario
-{
+#formulario{
   margin-top: 100px;
   margin-left: 500px;
   margin-right: -1x;
 }
-legend
-{
+
+legend{
   font-style:bold;
   font-family: ”Times New Roman”;    
 }
