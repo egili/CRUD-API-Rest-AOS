@@ -17,28 +17,32 @@
             <small class="text-muted">Cidadãos</small>
         </a>
 
-            <button class="btn btn-secondary my-2 my-sm-0"  onclick= "window.location.href='http://127.0.0.1:5500/alterar2.html'" type="submit">Enviar</button>
+        <a href="/Principal.html">
+            <button class="btn btn-secondary my-2 my-sm-0"  onclick= "window.location.href='http://127.0.0.1:5500/alterar2.html'" type="submit">Voltar</button>
+        </a>
 
     </div>
 </nav>
 
 <body>
- 
-    <div">
+    <div>
         
         <form action="/insertBDClientes" method="post">
             <div style="display: flex; flex-direction: column;" class="alert alert-primary" role="alert" id="formulario">
 
-                <legend class="centro"><small class="text-muted">Insira o CPF que deseja alterar!</small></legend>
-            
+                <legend class="centro"><small class="text-muted">Insira o CPF do Cidadão que deseja alterar!</small></legend>
+                
                 <div class="col-md-6">
                     <label for="nome" class="form-label">CPF</label>
                     <input type="text" class="form-control" id="CPF" name="CPF" placeholder="Seu CPF" required>
                 </div>
+
                 </br>
-               <form action="">
+
+                <form action="">
                     <button class="btn btn-secondary my-2 my-sm-0"  onclick= "window.location.href='http://127.0.0.1:5500/alterar2.html'" type="submit">Enviar</button>
                 </form>
+
             </div>
         </form>
     </div>
