@@ -1,4 +1,4 @@
-var attCpf ;
+var attCpf;
 
 function cadastrar() {
     let nome = document.getElementById('nome').value;
@@ -22,8 +22,9 @@ function cadastrar() {
 function alterar() {
     let cpf = document.getElementById('CPF').value;
 
-    this.attCpf = cpf;
-    console.log(attCpf)
+    attCpf = cpf;
+    localStorage.setItem('cpf', attCpf); //adicionando o cpf no localStorage
+    console.log(localStorage.getItem('cpf')); //imprime no log pra ver se salvou
     document.location.assign('http://127.0.0.1:5500/alterar2.html')
 }
 
@@ -33,20 +34,24 @@ function alterar2() {
     let cep = document.getElementById('CEP').value;
     let numCasa = document.getElementById('NumCa').value;
     let complemento = document.getElementById('complemento').value;
-    console.log(attCpf)
-    const json = {"CPF": attCpf, "nome": nome, "telefone": tel, "numeroCasa": numCasa, "complemento": complemento, "CEP": cep};
 
-    axios.put('http://localhost:3000/cidadaos/' + attCpf, json)
+    console.log(localStorage.getItem('cpf')); //imprime no log pra ver se esta acessivel///
+    const json = {"CPF": localStorage.getItem('cpf') /*pega o item no localStorage*/, "nome": nome, "telefone": tel, "numeroCasa": numCasa, "complemento": complemento, "CEP": cep};
+
+    axios.put('http://localhost:3000/cidadaos/' + localStorage.getItem('cpf'), json)
+
     .then((e) => {
         alert("Dados Enviados com sucesso");
     })
     .catch((err) => {
         console.log(err);
     })
+
+    localStorage.removeItem('cpf'); //remove pra evitar conflitos
 }
 
 function deletar() {
-    let cpf = document.getElementById('txt').value;
+    let cpf = document.getElementById('cpf').value;
 
     axios.delete('http://localhost:3000/cidadaos/' + cpf)
     .then((e) => {
