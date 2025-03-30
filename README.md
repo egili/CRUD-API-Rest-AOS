@@ -31,12 +31,4 @@ Trabalho de Arquitetura Orientada a Serviços do COTUCA
         </sub>
       </a>
     </td>
-     <td align="center">
-      <a href="https://github.com/luqmarqs">
-        <img src="https://avatars.githubusercontent.com/u/66765396?v=4" width="100px;" alt="luqmarqs"/><br>
-        <sub>
-          <b>luqmarqs</b>
-        </sub>
-      </a>
-    </td>
    </table>
